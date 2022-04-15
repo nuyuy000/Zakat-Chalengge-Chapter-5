@@ -17,7 +17,8 @@ import kotlinx.coroutines.runBlocking
 class FragmentLogin : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private var DbZakat:ZakatDatabase?=null
+   // private var DbZakat:ZakatDatabase?=null
+    lateinit var akunRepository: AkunRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,21 +30,24 @@ class FragmentLogin : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        akunRepository = AkunRepository(requireContext())
         binding.btnLogin.setOnClickListener {
             if (binding.etPassword.text.isEmpty() || binding.etUsername.text.isEmpty()) {
                 Toast.makeText(requireContext(), "Kolom Masih Kosong", Toast.LENGTH_SHORT).show()
             } else {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    val regis = DbZakat?. akunDao()?. login(String(),String())
+                    val regis = akunRepository.login(binding.etUsername.text.toString(),binding.etPassword.text.toString())
+
                     runBlocking(Dispatchers.Main) {
-                        if (regis==null) {
+                        if (regis!=null) {
                             Toast.makeText(requireContext(), "Berhasil Login", Toast.LENGTH_SHORT)
                                 .show()
+                            findNavController().navigate(R.id.action_fragmentLogin_to_listAkhir)
                         } else {
                             Toast.makeText(requireContext(),
                                 "Login Gagal, periksa kembali username dan password anda",
                                 Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_fragmentRegister_to_fragmentLogin)
+
                         }
                     }
                 }

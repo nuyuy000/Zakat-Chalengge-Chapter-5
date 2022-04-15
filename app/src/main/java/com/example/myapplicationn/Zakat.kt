@@ -11,12 +11,6 @@ var id :Int?,
 @ColumnInfo(name ="jeniszakat")
 var jenisZakat : String?,
 
-@ColumnInfo(name = "jumlahbayar")
-var jumlahbayar : String?,
-
-@ColumnInfo(name ="tanggalbayar")
-var tanggalbayar: String?,
-
 @ColumnInfo(name = "deskripsi")
 var deskripsi : String?,
 )

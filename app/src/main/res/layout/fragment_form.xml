@@ -3,14 +3,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+    android:background="@drawable/ic_home_screen"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".FormFragment">
-        android:fitsSystemWindows="true">
-
         <View
             android:id="@+id/view"
-            android:layout_width="40dp"
+            android:layout_width="match_parent"
             android:layout_height="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="32dp"
@@ -24,29 +23,18 @@
             android:id="@+id/textView27"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="Jenis Zakat" />
 
-        <Spinner
-            android:id="@+id/sp_jenis_zakat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:dropDownWidth="match_parent"
-            android:popupBackground="@color/white"
-            android:spinnerMode="dialog"
-            app:layout_constraintEnd_toEndOf="@+id/textView27"
-            app:layout_constraintStart_toStartOf="@+id/textView27"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
         <EditText
             android:id="@+id/et_jenis_zakat"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_edittetext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -62,37 +50,18 @@
 
         <TextView
             android:id="@+id/textView28"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Tanggal Bayar" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/et_tgl_event"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:enabled="false"
-                android:hint="dd/MMMM/yyyy"
-                android:inputType="date"
-                android:importantForAutofill="no" />
-
-        </LinearLayout>
+            android:text="Keterangan" />
 
         <EditText
             android:id="@+id/et_deskripsi"
+            android:background="@drawable/custom_edittetext"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -115,7 +84,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/teal_200"
+            android:backgroundTint="@color/teal_700"
             android:text="Save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/et_jenis_acara"

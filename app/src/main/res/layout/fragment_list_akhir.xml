@@ -3,19 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_700"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ListAkhir">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_zakat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical" />
 
     <ImageButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="330dp"
-        android:layout_marginTop="600dp"
+        android:id="@+id/btnadd"
+        android:layout_width="47dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="500dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/ic_plus_svgrepo_com" />
 
