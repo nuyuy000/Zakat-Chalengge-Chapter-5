@@ -1,15 +1,17 @@
 package com.example.myapplicationn
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface AkunDao {
-    @Query("SELECT * FROM akun WHERE  username = :username AND password = :password")
-    fun login(username: String, password: String):Boolean
+
+    @Query("SELECT * FROM Akun WHERE username = :email AND password = :password")
+    fun login(email: String, password: String):Akun?
+
+    @Query("SELECT * FROM Akun WHERE username = :email")
+    fun checkEmailExist(email: String):Akun?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addUser(akun: Akun): Long
+    fun insertAkun(user: Akun):Long
+
 }

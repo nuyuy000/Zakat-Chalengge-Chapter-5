@@ -40,7 +40,7 @@ class FragmentRegister : Fragment() {
             else {
                 val akun = Akun (null,binding.etUsername.text.toString(), binding.etPassword.text.toString())
                 lifecycleScope.launch(Dispatchers.IO){
-                    val regis = DbZakat?. akunDao()?. addUser(akun)
+                    val regis = DbZakat?. akunDao()?. insertAkun(akun)
                     runBlocking(Dispatchers.Main) {
                         if (regis!=0.toLong()){
                             Toast.makeText(requireContext(), "Berhasil Registrasi", Toast.LENGTH_SHORT).show()

@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class ListAkhir : Fragment() {
     private var _binding : FragmentListAkhirBinding? = null
     private val binding get() = _binding!!
-    //private var DbZakat:ZakatDatabase?=null
+    private var DbZakat:ZakatDatabase?=null
     lateinit var zakatRepository: ZakatRepository
     lateinit var adapter: ZakatAdapter
 
@@ -31,7 +31,7 @@ class ListAkhir : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         zakatRepository = ZakatRepository(requireContext())
-        //DbZakat = ZakatDatabase.getInstance(requireContext())
+        DbZakat = ZakatDatabase.getInstance(requireContext())
         adapter = ZakatAdapter({
             lifecycleScope.launch(Dispatchers.IO) {
                 val deleteZakat = zakatRepository.deleteZakat(it)
